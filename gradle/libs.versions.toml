@@ -1,10 +1,13 @@
 [versions]
 
+ksp = "2.0.20-1.0.24"
 kotlin = "2.0.20"
 compose = "1.7.0-alpha03"
 agp = "8.5.2"
 androidx-activityCompose = "1.9.1"
 androidx-uiTest = "1.6.8"
+androidx-material = "1.12.0"
+material3Android = "1.2.1"
 voyager = "1.1.0-beta02"
 coil = "3.0.0-alpha10"
 napier = "2.7.1"
@@ -17,10 +20,14 @@ kotlinx-serialization = "1.7.1"
 kotlinx-datetime = "0.6.0"
 multiplatformSettings = "1.1.1"
 koin = "4.0.0-RC1"
+koin-annotations = "1.4.0-RC3"
 kstore = "0.8.0"
 sqlDelight = "2.0.2"
 
 [libraries]
+androidx-material = { group = "com.google.android.material", name = "material", version.ref = "androidx-material" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-uitest-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-uiTest" }
@@ -46,11 +53,20 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 multiplatformSettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+koin-coroutines = { group = "io.insert-koin", name = "koin-core-coroutines", version.ref = "koin" }
+koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koin-annotations" }
+koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koin-annotations" }
 kstore = { module = "io.github.xxfast:kstore", version.ref = "kstore" }
 sqlDelight-driver-sqlite = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
 sqlDelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 sqlDelight-driver-js = { module = "app.cash.sqldelight:web-worker-driver", version.ref = "sqlDelight" }
+
+gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+com-google-devtools-ksp-gradle-plugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 
 [plugins]
 
@@ -61,3 +77,10 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
+
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+# plugins in this project
+kangaroo-plugin-kmm = { id = "kangaroo.plugin.kmm", version = "unspecified" }
+
+[bundles]

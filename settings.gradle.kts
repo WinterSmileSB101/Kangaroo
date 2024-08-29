@@ -1,6 +1,7 @@
 rootProject.name = "Kangaroo"
 
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -28,5 +29,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-include(":composeApp")
+include(":composeApp", ":domain", ":platform", ":feature:movies")
 

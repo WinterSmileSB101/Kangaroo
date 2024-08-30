@@ -44,6 +44,9 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
+            // navigation
+            implementation(libs.voyager.navigator)
+
             // koin
             implementation(libs.koin.core)
             implementation(libs.koin.compose)

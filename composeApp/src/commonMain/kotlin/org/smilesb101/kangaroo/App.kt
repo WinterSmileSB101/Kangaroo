@@ -107,13 +107,30 @@ internal fun App() = AppTheme {
 
 @Composable
 internal fun RootContent() {
-    Column(
+    Scaffold(
         modifier = Modifier
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.safeDrawing)
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Navigator(MoviesScreen())
+            .padding(horizontal = 16.dp),
+        contentWindowInsets = WindowInsets.safeContent,
+        topBar = {
+            Column(modifier = Modifier.fillMaxSize()) {
+                Text("App bar")
+            }
+        }
+    ) { innerPadding ->
+        Column(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
+            Navigator(MoviesScreen())
+        }
+
     }
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .windowInsetsPadding(WindowInsets.safeDrawing)
+//            .padding(16.dp),
+//        horizontalAlignment = Alignment.CenterHorizontally
+//    ) {
+//
+//    }
 }
